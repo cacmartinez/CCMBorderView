@@ -2,7 +2,7 @@
 
 CCMBorderView is a simple to use view that uses the new IBDesignable and IBInspectable features of Xcode 6 to easily configure a view to have a top border, left border, right border, bottom border, or a combination of those. You can pick the width and color of the border, and you can also give it a corner radius to make rounded corners.
 
-![ViewWithBorder](https://github.com/cacmartinez/ViewWithBorder-ObjectiveC/blob/master/Screenshots/iOS\ Simulator\ Screen\ Shot\ 28.11.2014\ 14.02.11.png)
+![ViewWithBorder](https://github.com/cacmartinez/ViewWithBorder-ObjectiveC/blob/master/Screenshots/screenshot.png)
 
 Issues with this version:
 
@@ -21,7 +21,7 @@ Xcode version 6.0 or later.
 
 ## Installation
 
-Download or clone the repository, and copy the CCMBorderView.swift file to your project.
+Download or clone the repository, and copy the CCMBorderView.swift or the .h and .m files in case your are using objective-c, to your project.
 
 ## Author
 
