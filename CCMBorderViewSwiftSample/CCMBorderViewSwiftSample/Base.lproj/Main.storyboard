@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CCMBorderViewSwiftSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UB-Lf-HXI" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
+                                <rect key="frame" x="10" y="45" width="553" height="522"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1t-kE-Zlr" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
+                                        <rect key="frame" x="125" y="111" width="300" height="300"/>
+                                        <color key="backgroundColor" red="0.089612319224919718" green="0.86871444034663248" blue="0.99850594997406006" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="1OB-ZW-joB"/>
+                                            <constraint firstAttribute="width" constant="300" id="Qt4-2d-M5e"/>
+                                            <constraint firstAttribute="height" constant="300" id="Usc-W6-jcJ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="szR-7g-NP1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.14117647059999999" green="0.29803921570000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="18"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1OB-ZW-joB"/>
+                                                <exclude reference="szR-7g-NP1"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhS-f8-IQ8" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
+                                        <rect key="frame" x="388" y="78" width="70" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="97" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCY-tB-0xB">
+                                                <rect key="frame" x="7" y="4" width="56" height="62"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="EJo-zA-mWh"/>
+                                                    <constraint firstAttribute="height" constant="62" id="zcI-MM-p7c"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                                <color key="textColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.94509810209274292" green="0.43529415130615234" blue="0.13725490868091583" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="KxH-Fr-ynY"/>
+                                            <constraint firstAttribute="centerY" secondItem="KCY-tB-0xB" secondAttribute="centerY" id="QSs-EG-kVe"/>
+                                            <constraint firstAttribute="width" constant="70" id="YLr-jn-TIX"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Yzb-Uu-shj"/>
+                                            <constraint firstAttribute="centerX" secondItem="KCY-tB-0xB" secondAttribute="centerX" id="fQ9-mh-GtK"/>
+                                            <constraint firstAttribute="height" constant="70" id="kMM-XY-mB7"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="KxH-Fr-ynY"/>
+                                                <exclude reference="Yzb-Uu-shj"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="K1t-kE-Zlr" secondAttribute="centerX" constant="1.5" id="EIM-wG-LxN"/>
+                                    <constraint firstAttribute="height" constant="522" id="FTv-e8-xxj"/>
+                                    <constraint firstItem="K1t-kE-Zlr" firstAttribute="centerY" secondItem="XhS-f8-IQ8" secondAttribute="centerY" constant="148" id="UfD-T3-5Os"/>
+                                    <constraint firstAttribute="centerY" secondItem="K1t-kE-Zlr" secondAttribute="centerY" id="biX-7H-Hax"/>
+                                    <constraint firstItem="K1t-kE-Zlr" firstAttribute="centerX" secondItem="XhS-f8-IQ8" secondAttribute="centerX" constant="-148" id="iHK-vl-grB"/>
+                                    <constraint firstAttribute="width" constant="509" id="qI4-sl-Jwk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderBottom" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderRight" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="borderLeft" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FTv-e8-xxj"/>
+                                        <exclude reference="qI4-sl-Jwk"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4UB-Lf-HXI" secondAttribute="bottom" constant="33" id="6cX-fE-1qw"/>
+                            <constraint firstItem="4UB-Lf-HXI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-6" id="BcK-Aq-ISY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4UB-Lf-HXI" secondAttribute="trailing" constant="21" id="dnT-Ly-EYS"/>
+                            <constraint firstItem="4UB-Lf-HXI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="tQH-Cg-xWo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="363" y="411"/>
+        </scene>
+    </scenes>
+</document>
