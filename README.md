@@ -27,7 +27,7 @@ Xcode version 6.0 or later.
 
 ## Installation
 
-Download or clone the repository, and copy the CCMBorderView.swift or the .h and .m files in case your are using objective-c, to your project.
+Download or clone the repository, and copy the `CCMBorderView.swift` or the `CCMBorderView.h` and `CCMBorderView.m` files in case your are using objective-c, to your project.
 
 ## Author
 
