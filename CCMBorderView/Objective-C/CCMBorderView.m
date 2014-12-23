@@ -35,7 +35,7 @@
     }
     return self;
 }
--(id)initWithFrame:(CGRect)frame border:(Border)border radius:(double)radius color:(UIColor *)color borderWidth:(double)width{
+- (id)initWithFrame:(CGRect)frame border:(Border)border radius:(CGFloat)radius color:(UIColor *)color borderWidth:(CGFloat)width {
     self = [super initWithFrame:frame];
     if (self) {
         if ((border & Border_Bottom) != 0) {
@@ -143,11 +143,11 @@
     }
 }
 
--(double)borderWidth{
+- (CGFloat)borderWidth {
     return _borderWidth;
 }
 
--(void)setBorderWidth:(double)borderWidth{
+- (void)setBorderWidth:(CGFloat)borderWidth {
     _borderWidth = borderWidth;
     [self updateView];
 }
@@ -165,11 +165,11 @@
 //    [self updateView];
 //}
 
--(double)cornerRadius{
+- (CGFloat)cornerRadius {
     return _cornerRadius;
 }
 
--(void)setCornerRadius:(double)cornerRadius{
+- (void)setCornerRadius:(CGFloat)cornerRadius {
     _cornerRadius = cornerRadius;
     [self updateView];
 }
