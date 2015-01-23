@@ -34,6 +34,10 @@ typedef NS_OPTIONS(NSInteger, Border){
 @property IBInspectable BOOL      borderRight;
 @property IBInspectable BOOL      borderLeft;
 @property IBInspectable BOOL      borderTop;
+@property IBInspectable CGFloat   tlCornerRadius;
+@property IBInspectable CGFloat   trCornerRadius;
+@property IBInspectable CGFloat   blCornerRadius;
+@property IBInspectable CGFloat   brCornerRadius;
 
 - (id)initWithFrame:(CGRect)frame border:(Border)border radius:(CGFloat)radius color:(UIColor *)color borderWidth:(CGFloat)width;
 - (void)updateView;

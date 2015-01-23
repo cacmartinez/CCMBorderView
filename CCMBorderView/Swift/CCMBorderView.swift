@@ -77,6 +77,30 @@ import UIKit
         }
     }
     
+    @IBInspectable var tlCornerRadius: CGFloat = 0.0 {
+        didSet{
+            updateView()
+        }
+    }
+    
+    @IBInspectable var trCornerRadius: CGFloat = 0.0 {
+        didSet{
+            updateView()
+        }
+    }
+    
+    @IBInspectable var blCornerRadius: CGFloat = 0.0 {
+        didSet{
+            updateView()
+        }
+    }
+    
+    @IBInspectable var brCornerRadius: CGFloat = 0.0 {
+        didSet{
+            updateView()
+        }
+    }
+    
     init(frame: CGRect, borders: Border, radius:CGFloat, color:UIColor, borderWidth:CGFloat){
         super.init(frame: frame)
         if (borders.value & Border.Bottom.value != 0){
@@ -129,6 +153,7 @@ import UIKit
     
     func updateView(){
         self.removePreviousBorders();
+        layer.mask = nil
         if (self.cornerRadius != 0.0){
             self.layer.cornerRadius = self.cornerRadius
             self.clipsToBounds = true;
@@ -165,5 +190,51 @@ import UIKit
             sublayerLeft.frame = CGRectMake(0, 0, self.borderWidth, self.layer.frame.size.height)
             self.layer.addSublayer(sublayerLeft)
         }
+        if self.trCornerRadius != 0 ||
+            self.tlCornerRadius != 0 ||
+            self.blCornerRadius != 0 ||
+            self.brCornerRadius != 0 {
+                var mask = MTDContextCreateRoundedMask(rect: bounds, radius_tl: tlCornerRadius, radius_tr: trCornerRadius, radius_bl: blCornerRadius, radius_br: brCornerRadius)
+                var layerMask = CALayer()
+                layerMask.frame = bounds
+                layerMask.contents = mask.CGImage
+                layer.mask = layerMask
+        }
+    }
+    
+    private func MTDContextCreateRoundedMask(#rect: CGRect, radius_tl : CGFloat, radius_tr : CGFloat, radius_bl : CGFloat, radius_br : CGFloat) -> UIImage {
+        var context : CGContextRef
+        var colorSpace : CGColorSpaceRef
+        
+        colorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        // create a bitmap graphics context the size of the image
+        context = CGBitmapContextCreate(nil, UInt(rect.size.width), UInt(rect.size.height), 8, 0, colorSpace, CGBitmapInfo(rawValue: 1))
+        
+        var minx = CGRectGetMinX(rect), midx = CGRectGetMidX(rect), maxx = CGRectGetMaxX(rect)
+        var miny = CGRectGetMinY(rect), midy = CGRectGetMidY(rect), maxy = CGRectGetMaxY(rect)
+        
+        CGContextBeginPath(context)
+        CGContextSetGrayFillColor(context, 1.0, 0.0)
+        CGContextAddRect( context, rect )
+        CGContextClosePath( context )
+        CGContextDrawPath( context, kCGPathFill )
+        
+        CGContextSetGrayFillColor( context, 1.0, 1.0 )
+        CGContextBeginPath( context )
+        CGContextMoveToPoint( context, minx, midy )
+        CGContextAddArcToPoint( context, minx, miny, midx, miny, radius_bl )
+        CGContextAddArcToPoint( context, maxx, miny, maxx, midy, radius_br )
+        CGContextAddArcToPoint( context, maxx, maxy, midx, maxy, radius_tr )
+        CGContextAddArcToPoint( context, minx, maxy, minx, midy, radius_tl )
+        CGContextClosePath( context )
+        CGContextDrawPath( context, kCGPathFill )
+        
+        // Create CGImageRef of the main view bitmap content, and then
+        // release that bitmap context
+        var bitmapContext = CGBitmapContextCreateImage( context )
+        
+        var theImage = UIImage(CGImage: bitmapContext)
+        return theImage!
     }
 }
