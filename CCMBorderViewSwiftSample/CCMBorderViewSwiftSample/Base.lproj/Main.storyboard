@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,10 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UB-Lf-HXI" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
-                                <rect key="frame" x="10" y="45" width="553" height="522"/>
+                                <rect key="frame" x="14" y="45" width="545" height="522"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1t-kE-Zlr" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
-                                        <rect key="frame" x="125" y="111" width="300" height="300"/>
+                                        <rect key="frame" x="121" y="111" width="300" height="300"/>
+                                        <animations/>
                                         <color key="backgroundColor" red="0.089612319224919718" green="0.86871444034663248" blue="0.99850594997406006" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="1OB-ZW-joB"/>
@@ -48,10 +50,11 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhS-f8-IQ8" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
-                                        <rect key="frame" x="388" y="78" width="70" height="70"/>
+                                        <rect key="frame" x="384" y="78" width="70" height="70"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="97" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCY-tB-0xB">
                                                 <rect key="frame" x="7" y="4" width="56" height="62"/>
+                                                <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="56" id="EJo-zA-mWh"/>
                                                     <constraint firstAttribute="height" constant="62" id="zcI-MM-p7c"/>
@@ -61,6 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <animations/>
                                         <color key="backgroundColor" red="0.94509810209274292" green="0.43529415130615234" blue="0.13725490868091583" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="KxH-Fr-ynY"/>
@@ -86,7 +90,8 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-G1-leV" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
-                                        <rect key="frame" x="54" y="43" width="208" height="210"/>
+                                        <rect key="frame" x="33" y="-75" width="55" height="22"/>
+                                        <animations/>
                                         <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="tlCornerRadius">
@@ -98,6 +103,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="K1t-kE-Zlr" secondAttribute="centerX" constant="1.5" id="EIM-wG-LxN"/>
@@ -126,6 +132,7 @@
                                 </variation>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4UB-Lf-HXI" secondAttribute="bottom" constant="33" id="6cX-fE-1qw"/>
@@ -137,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="363" y="411"/>
+            <point key="canvasLocation" x="360" y="414"/>
         </scene>
     </scenes>
 </document>

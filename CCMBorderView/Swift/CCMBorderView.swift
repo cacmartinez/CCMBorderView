@@ -18,21 +18,21 @@ import Foundation
 import UIKit
 
 @IBDesignable class CCMBorderView: UIView{
-    struct Border : RawOptionSetType {
+    struct Border : OptionSetType {
         typealias RawValue = UInt
         private var value: UInt = 0
         init(_ value: UInt) { self.value = value }
         init(rawValue value: UInt) { self.value = value }
         init(nilLiteral: ()) { self.value = 0 }
-        static var allZeros: Border { return self(0) }
-        static func fromMask(raw: UInt) -> Border { return self(raw) }
+        static var allZeros: Border { return self.init(0) }
+        static func fromMask(raw: UInt) -> Border { return self.init(raw) }
         var rawValue: UInt { return self.value }
         
-        static var None: Border { return self(0) }
-        static var Bottom: Border   { return self(1 << 0) }
-        static var Left: Border  { return self(1 << 1) }
-        static var Right: Border   { return self(1 << 2) }
-        static var Top: Border  { return self(1 << 3) }
+        static var None: Border { return self.init(0) }
+        static var Bottom: Border   { return self.init(1 << 0) }
+        static var Left: Border  { return self.init(1 << 1) }
+        static var Right: Border   { return self.init(1 << 2) }
+        static var Top: Border  { return self.init(1 << 3) }
     }
     
     @IBInspectable var borderWidth: CGFloat = 1.0 {
@@ -125,7 +125,7 @@ import UIKit
         super.init(frame: frame)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -163,28 +163,28 @@ import UIKit
             return;
         }
         if (self.borderBottom){
-            var sublayerBottom = CALayer()
+            let sublayerBottom = CALayer()
             sublayerBottom.name = "Border"
             sublayerBottom.backgroundColor = self.borderColor.CGColor
             sublayerBottom.frame = CGRectMake(0, self.frame.size.height - self.borderWidth, self.frame.size.width, self.borderWidth)
             self.layer.addSublayer(sublayerBottom)
         }
         if (self.borderTop){
-            var sublayerTop = CALayer()
+            let sublayerTop = CALayer()
             sublayerTop.name = "Border"
             sublayerTop.backgroundColor = self.borderColor.CGColor
             sublayerTop.frame = CGRectMake(0, 0, self.frame.size.width, self.borderWidth)
             self.layer.addSublayer(sublayerTop)
         }
         if(self.borderRight){
-            var sublayerRight = CALayer()
+            let sublayerRight = CALayer()
             sublayerRight.name = "Border"
             sublayerRight.backgroundColor = self.borderColor.CGColor
             sublayerRight.frame = CGRectMake(self.frame.size.width - self.borderWidth, 0, self.borderWidth, self.frame.size.height)
             self.layer.addSublayer(sublayerRight)
         }
         if(self.borderLeft){
-            var sublayerLeft = CALayer()
+            let sublayerLeft = CALayer()
             sublayerLeft.name = "Border"
             sublayerLeft.backgroundColor = self.borderColor.CGColor
             sublayerLeft.frame = CGRectMake(0, 0, self.borderWidth, self.layer.frame.size.height)
@@ -194,31 +194,35 @@ import UIKit
             self.tlCornerRadius != 0 ||
             self.blCornerRadius != 0 ||
             self.brCornerRadius != 0 {
-                var mask = MTDContextCreateRoundedMask(rect: bounds, radius_tl: tlCornerRadius, radius_tr: trCornerRadius, radius_bl: blCornerRadius, radius_br: brCornerRadius)
-                var layerMask = CALayer()
+                let mask = MTDContextCreateRoundedMask(rect: bounds, radius_tl: tlCornerRadius, radius_tr: trCornerRadius, radius_bl: blCornerRadius, radius_br: brCornerRadius)
+                let layerMask = CALayer()
                 layerMask.frame = bounds
                 layerMask.contents = mask.CGImage
                 layer.mask = layerMask
         }
     }
     
-    private func MTDContextCreateRoundedMask(#rect: CGRect, radius_tl : CGFloat, radius_tr : CGFloat, radius_bl : CGFloat, radius_br : CGFloat) -> UIImage {
-        var context : CGContextRef
-        var colorSpace : CGColorSpaceRef
+    private func MTDContextCreateRoundedMask(rect rect: CGRect, radius_tl : CGFloat, radius_tr : CGFloat, radius_bl : CGFloat, radius_br : CGFloat) -> UIImage {
+        var context : CGContextRef?
+        var colorSpace : CGColorSpaceRef?
         
         colorSpace = CGColorSpaceCreateDeviceRGB()
         
         // create a bitmap graphics context the size of the image
-        context = CGBitmapContextCreate(nil, UInt(rect.size.width), UInt(rect.size.height), 8, 0, colorSpace, CGBitmapInfo(rawValue: 1))
+        context = CGBitmapContextCreate(nil, Int(rect.size.width), Int(rect.size.height), 8, 0, colorSpace, 1)
         
-        var minx = CGRectGetMinX(rect), midx = CGRectGetMidX(rect), maxx = CGRectGetMaxX(rect)
-        var miny = CGRectGetMinY(rect), midy = CGRectGetMidY(rect), maxy = CGRectGetMaxY(rect)
+        let minx = CGRectGetMinX(rect)
+        let midx = CGRectGetMidX(rect)
+        let maxx = CGRectGetMaxX(rect)
+        let miny = CGRectGetMinY(rect)
+        let midy = CGRectGetMidY(rect)
+        let maxy = CGRectGetMaxY(rect)
         
         CGContextBeginPath(context)
         CGContextSetGrayFillColor(context, 1.0, 0.0)
         CGContextAddRect( context, rect )
         CGContextClosePath( context )
-        CGContextDrawPath( context, kCGPathFill )
+        CGContextDrawPath( context, CGPathDrawingMode.Fill )
         
         CGContextSetGrayFillColor( context, 1.0, 1.0 )
         CGContextBeginPath( context )
@@ -228,13 +232,13 @@ import UIKit
         CGContextAddArcToPoint( context, maxx, maxy, midx, maxy, radius_tr )
         CGContextAddArcToPoint( context, minx, maxy, minx, midy, radius_tl )
         CGContextClosePath( context )
-        CGContextDrawPath( context, kCGPathFill )
+        CGContextDrawPath( context, CGPathDrawingMode.Fill )
         
         // Create CGImageRef of the main view bitmap content, and then
         // release that bitmap context
-        var bitmapContext = CGBitmapContextCreateImage( context )
+        let bitmapContext = CGBitmapContextCreateImage( context )!
         
-        var theImage = UIImage(CGImage: bitmapContext)
-        return theImage!
+        let theImage = UIImage(CGImage: bitmapContext)
+        return theImage
     }
 }
