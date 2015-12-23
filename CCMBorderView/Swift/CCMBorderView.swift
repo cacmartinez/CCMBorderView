@@ -129,10 +129,10 @@ import UIKit
         super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
-        self.updateView()
-    }
-    
+//    override func layoutSubviews() {
+//        self.updateView()
+//    }
+//    
     
     
     func removePreviousBorders(){
@@ -209,7 +209,7 @@ import UIKit
         colorSpace = CGColorSpaceCreateDeviceRGB()
         
         // create a bitmap graphics context the size of the image
-        context = CGBitmapContextCreate(nil, Int(rect.size.width), Int(rect.size.height), 8, 0, colorSpace, 1)
+        context = CGBitmapContextCreate(nil, Int(rect.size.width), Int(rect.size.height), 8, 0, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)
         
         let minx = CGRectGetMinX(rect)
         let midx = CGRectGetMidX(rect)

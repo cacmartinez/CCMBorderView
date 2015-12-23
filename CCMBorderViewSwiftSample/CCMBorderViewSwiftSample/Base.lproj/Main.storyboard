@@ -89,7 +89,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-G1-leV" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-G1-leV" customClass="CCMBorderView" customModule="CCMBorderViewSwiftSample" customModuleProvider="target">
                                         <rect key="frame" x="33" y="-75" width="55" height="22"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
