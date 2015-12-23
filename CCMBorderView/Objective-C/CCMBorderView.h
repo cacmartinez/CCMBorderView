@@ -19,12 +19,12 @@
 IB_DESIGNABLE
 @interface CCMBorderView: UIView
 
-typedef NS_OPTIONS(NSInteger, Border){
-    Border_None,
-    Border_Bottom,
-    Border_Left,
-    Border_Top,
-    Border_Right
+typedef NS_OPTIONS(NSInteger, CCMBorder){
+    CCMBorder_None,
+    CCMBorder_Bottom,
+    CCMBorder_Left,
+    CCMBorder_Top,
+    CCMBorder_Right
 };
 
 @property IBInspectable CGFloat   borderWidth;
@@ -39,7 +39,7 @@ typedef NS_OPTIONS(NSInteger, Border){
 @property IBInspectable CGFloat   blCornerRadius;
 @property IBInspectable CGFloat   brCornerRadius;
 
-- (id)initWithFrame:(CGRect)frame border:(Border)border radius:(CGFloat)radius color:(UIColor *)color borderWidth:(CGFloat)width;
+- (id)initWithFrame:(CGRect)frame border:(CCMBorder)border radius:(CGFloat)radius color:(UIColor *)color borderWidth:(CGFloat)width;
 - (void)updateView;
 
 @end

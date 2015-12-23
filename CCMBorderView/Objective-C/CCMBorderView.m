@@ -39,19 +39,19 @@
     }
     return self;
 }
-- (id)initWithFrame:(CGRect)frame border:(Border)border radius:(CGFloat)radius color:(UIColor *)color borderWidth:(CGFloat)width {
+- (id)initWithFrame:(CGRect)frame border:(CCMBorder)border radius:(CGFloat)radius color:(UIColor *)color borderWidth:(CGFloat)width {
     self = [super initWithFrame:frame];
     if (self) {
-        if ((border & Border_Bottom) != 0) {
+        if ((border & CCMBorder_Bottom) != 0) {
             self.borderBottom = YES;
         }
-        if ((border & Border_Left) != 0) {
+        if ((border & CCMBorder_Left) != 0) {
             self.borderLeft = YES;
         }
-        if ((border & Border_Right) != 0) {
+        if ((border & CCMBorder_Right) != 0) {
             self.borderRight = YES;
         }
-        if ((border & Border_Top) != 0) {
+        if ((border & CCMBorder_Top) != 0) {
             self.borderTop = YES;
         }
         self.cornerRadius = radius;
