@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.license      = "APACHE 2.0"
   s.author       = { "Carlos Compean" => "ccompean@icalialabs.com" }
   s.platform     = :ios, '7.0'
-  s.source       = { :git => "https://github.com/cacmartinez/CCMBorderView.git", :tag => s.version.to_s }
+  s.source       = { :git => "https://github.com:cacmartinez/CCMBorderView.git", :tag => s.version.to_s }
   s.source_files  = "CCMBorderView/Objective-C/*.{h,m}"
   s.requires_arc = true
 
